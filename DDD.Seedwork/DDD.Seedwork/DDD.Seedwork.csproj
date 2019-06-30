@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>hr.vision.DDD.Seedwork</AssemblyName>
+        <RootNamespace>hr.vision.DDD.Seedwork</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\azure-pipelines.yml">
+        <Link>azure-pipelines.yml</Link>
+      </Content>
+    </ItemGroup>
+
+</Project>

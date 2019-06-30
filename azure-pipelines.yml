@@ -3,17 +3,28 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+  Major: '1'
+  Minor: '0'
+  Patch: '0'
+
 trigger:
 - master
 
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+  - stage: build
+    jobs:
+      - job: build
+        tasks:
+          - task: NuGetCommand@2
+              inputs:
+                command: pack
+                packagesToPack: '**/*.csproj'
+                versioningScheme: byPrereleaseNumber
+                majorVersion: '$(Major)'
+                minorVersion: '$(Minor)'
+                patchVersion: '$(Patch)'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
